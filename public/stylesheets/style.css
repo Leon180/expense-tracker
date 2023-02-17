@@ -1,0 +1,42 @@
+header {
+  overflow: hidden;
+}
+
+.container-regular-size {
+  max-width: 60%;
+  min-width: 500px;
+}
+
+.total-amount-row {
+  width: 70%
+}
+
+.list-group {
+  width: 90%
+}
+
+.margin-set .row {
+  margin-bottom: 4.8%;
+}
+
+.navbar .navbar-brand {
+  color: #4592af;
+}
+
+.navbar .navbar-brand:hover {
+  color: #226089;
+}
+
+.form-control::placeholder {
+  color: #aaaaaa;
+  font-size: 0.8rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+.dropdown {
+  text-align: right;
+}

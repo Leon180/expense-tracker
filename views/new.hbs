@@ -1,0 +1,41 @@
+<div class="container container-regular-size my-5">
+  <div class="row align-items-center margin-set">
+    <div class="row">
+      <div class="col-2">*: required field</div>
+      <div class="col text-center fs-4">
+        Please Input Your Expense
+      </div>
+    </div>
+    <form class="row" action="/restaurants" method="post">
+      <div class="row">
+        <label for="name" class="form-label col-2 fs-5">Name*:</label>
+        <input type="text" class="form-control col" placeholder="Please input the cost name" name="name" id="name"
+          required>
+      </div>
+      <div class="row">
+        <label for="date" class="form-label col-2 fs-5">Date*:</label>
+        <input type="date" class="form-control col" name="date" value="2023-02-17" id="date">
+      </div>
+      <div class="row">
+        <label for="category" class="form-label col-2 fs-5">Category*:</label>
+        <select class="form-select col" id="category" name="category" required>
+          <option selected>Select</option>
+          <option>Home Property</option>
+          <option>Transportation</option>
+          <option>Entertainment</option>
+          <option>Food</option>
+          <option>Others</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="amount" class="form-label col-2 fs-5">Amount*:</label>
+        <input type="text" class="form-control col" placeholder="Please input the amount" name="amount" id="amount"
+          required>
+      </div>
+      <div class="row style-submit justify-content-end">
+        <button type="submit" class="btn btn-primary col-10">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</div>

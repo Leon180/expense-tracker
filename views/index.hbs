@@ -1,0 +1,62 @@
+<div class="container container-regular-size">
+
+  {{!-- dropdown --}}
+  <div class="dropdown mt-3">
+    <button class="btn dropdown-toggle border border-secondary " type="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Category
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/expense/category/
+Home Property">Home Property</a></li>
+      <li><a class="dropdown-item" href="/expense/category/Transportation">Transportation</a></li>
+      <li><a class="dropdown-item" href="/expense/category/Entertainment">Entertainment</a></li>
+      <li><a class="dropdown-item" href="/expense/category/Food">Food</a></li>
+      <li><a class="dropdown-item" href="/expense/category/Others">Others</a></li>
+      <li><a class="dropdown-item" href="/">All</a></li>
+    </ul>
+  </div>
+
+  <div class="row">
+    {{!-- total amount row --}}
+    <div class="row total-amount-row">
+      <div class="col-4 text-start">
+        Total Expenses：
+      </div>
+      <div class="col text-end fs-3">//Expense Number</div>
+    </div>
+    {{!-- list group of cost --}}
+    <div class="row">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-2 text-center">
+              <div><i class="{{this.categoryIcon}} fa-2xl ms-2" id="left">//Icon</i>
+              </div>
+            </div>
+            <div class="col-2 text-center">
+              <div class="row">//Name</div>
+              <div class="row">//Date</div>
+            </div>
+            <div class="col text-end fs-4">
+              //Amount
+            </div>
+            <div class="col-3">
+              <a class="btn" href="./expense/{{ this._id }}/edit">Edit</a>
+              <form action="./expense/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+                <button class="btn" type="submit">Delete
+                </button>
+              </form>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    </li>
+    </ul>
+    <div class="row ms-2">
+      <a href="/expense/new" class="btn btn-primary my-4 col-10">Add an expense</a>
+    </div>
+  </div>
+
+</div>
