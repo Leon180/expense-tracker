@@ -17,10 +17,10 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="/">
-          Account Book for Family
+          {{#if user.name}}{{ user.name }}'s{{/if}} Account Book for Family
         </a>
         {{#if isAuthenticated}}
-        <a href="/users/logout" class="btn">Logout</a>
+        <a href="/user/logout" class="btn">Logout</a>
         {{/if}}
       </div>
     </nav>
