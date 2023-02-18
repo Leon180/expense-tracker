@@ -7,12 +7,11 @@
       Category
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="/expense/category/
-Home Property">Home Property</a></li>
-      <li><a class="dropdown-item" href="/expense/category/Transportation">Transportation</a></li>
-      <li><a class="dropdown-item" href="/expense/category/Entertainment">Entertainment</a></li>
-      <li><a class="dropdown-item" href="/expense/category/Food">Food</a></li>
-      <li><a class="dropdown-item" href="/expense/category/Others">Others</a></li>
+      <li><a class="dropdown-item" href="/category/家居物業">Home Property</a></li>
+      <li><a class="dropdown-item" href="/category/交通出行">Transportation</a></li>
+      <li><a class="dropdown-item" href="/category/休閒娛樂">Entertainment</a></li>
+      <li><a class="dropdown-item" href="/category/餐飲食品">Food</a></li>
+      <li><a class="dropdown-item" href="/category/其他">Others</a></li>
       <li><a class="dropdown-item" href="/">All</a></li>
     </ul>
   </div>
@@ -32,24 +31,24 @@ Home Property">Home Property</a></li>
         <li class="list-group-item">
           <div class="row align-items-center">
             <div class="col-2 text-center">
-              <div><i class="{{this.categoryId}} fa-2xl ms-2" id="left">//Icon</i>
+              <div><i class="{{this.icon}}""></i>
               </div>
             </div>
-            <div class="col-2 text-center">
-              <div class="row">{{this.name}}</div>
-              <div class="row">{{this.date}}</div>
+            <div class=" col-2 text-center">
+                  <div class="row">{{this.name}}</div>
+                  <div class="row">{{this.date}}</div>
+              </div>
+              <div class="col text-end fs-4">
+                ${{this.amount}}
+              </div>
+              <div class="col-3">
+                <a class="btn" href="./expense/{{ this._id }}/edit">Edit</a>
+                <form action="./expense/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+                  <button class="btn" type="submit">Delete
+                  </button>
+                </form>
+              </div>
             </div>
-            <div class="col text-end fs-4">
-              ${{this.amount}}
-            </div>
-            <div class="col-3">
-              <a class="btn" href="./expense/{{ this._id }}/edit">Edit</a>
-              <form action="./expense/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-                <button class="btn" type="submit">Delete
-                </button>
-              </form>
-            </div>
-          </div>
         </li>
         {{/each}}
       </ul>

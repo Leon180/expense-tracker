@@ -10,26 +10,25 @@ const CATEGORY_LIST = {
   其他: "fa-solid fa-pen"
 }
 
-router.get('/', async (req, res) => {
-  const userId = req.user._id
+router.get('/:category', async (req, res) => {
   try {
-    const expenses = await Expense.find({ userId }).lean().sort()
-    const totalAmount = expenses.reduce((total, expense) =>
-      total + Number(expense.amount), 0)
-    // Add icon
-    await Promise.all(
-      expenses.map(async (expense, i) => {
-        const category = await Category.findOne({ id: expense._id }).lean()
-        expense.icon = CATEGORY_LIST[category.name]
+    const category = req.params.category
+    const categoryMatch = await Category.find({ name: category }).lean()
+    const expenses = await Promise.all(
+      categoryMatch.map(async (match) => {
+        let expense = await Expense.findOne({ _id: match.id }).lean()
+        expense.icon = CATEGORY_LIST[match.name]
         return expense
       })
     )
-    console.log(expenses)
+    const totalAmount = expenses.reduce((total, expense) =>
+      total + Number(expense.amount), 0)
     res.render('index', { expenses, totalAmount })
   }
   catch {
     if (error) { console.error(error) }
   }
 })
+
 
 module.exports = router

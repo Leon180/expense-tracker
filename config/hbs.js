@@ -8,8 +8,7 @@ module.exports = app => {
     helpers: {
       selected: (categoryId, reqCategoryId) => {
         if (categoryId === reqCategoryId) return "selected"
-      },
-      
+      }
     }
   }))
   app.set('view engine', 'hbs')
