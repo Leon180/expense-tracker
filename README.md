@@ -32,7 +32,11 @@ git clone https://github.com/Leon180/ac_restaurant.git
 ```
 npm install  //安裝套件
 ```
-3.開啟程式
+3.產生seed
+```
+npm run seed
+```
+4.開啟程式
 ```
 npm run start  //執行程式
 ```
