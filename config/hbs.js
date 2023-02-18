@@ -6,9 +6,10 @@ module.exports = app => {
     extname: '.hbs',
     // helper
     helpers: {
-      selected: (sortSelecting) => {
-        if (sortSelecting) return "selected"
-      }
+      selected: (categoryId, reqCategoryId) => {
+        if (categoryId === reqCategoryId) return "selected"
+      },
+      
     }
   }))
   app.set('view engine', 'hbs')

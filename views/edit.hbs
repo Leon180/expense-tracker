@@ -3,34 +3,33 @@
     <div class="row">
       <div class="col-2">*: required field</div>
       <div class="col text-center fs-4">
-        Please Input Your Expense
+        Please Edit Your Expense
       </div>
     </div>
-    <form class="row" action="/restaurants" method="post">
+    <form class="row" action="/expense/{{ expense._id }}?_method=PUT" method="post">
       <div class="row">
         <label for="name" class="form-label col-2 fs-5">Name*:</label>
         <input type="text" class="form-control col" placeholder="Please input the cost name" name="name" id="name"
-          required>
+          value="{{expense.name}}" required>
       </div>
       <div class="row">
         <label for="date" class="form-label col-2 fs-5">Date*:</label>
-        <input type="date" class="form-control col" name="date" value="2023-02-17" id="date">
+        <input type="date" class="form-control col" name="date" id="date" value="{{expense.date}}">
       </div>
       <div class="row">
-        <label for="category" class="form-label col-2 fs-5">Category*:</label>
-        <select class="form-select col" id="category" name="category" required>
-          <option selected>Select</option>
-          <option>Home Property</option>
-          <option>Transportation</option>
-          <option>Entertainment</option>
-          <option>Food</option>
-          <option>Others</option>
+        <label for="categoryId" class="form-label col-2 fs-5">Category*:</label>
+        <select class="form-select col" id="categoryId" name="categoryId" required>
+          <option value="1" {{selected expense.categoryId '1' }}>Home Property</option>
+          <option value="2" {{selected expense.categoryId '2' }}>Transportation</option>
+          <option value="3" {{selected expense.categoryId '3' }}>Entertainment</option>
+          <option value="4" {{selected expense.categoryId '4' }}>Food</option>
+          <option value="5" {{selected expense.categoryId '5' }}>Others</option>
         </select>
       </div>
       <div class="row">
         <label for="amount" class="form-label col-2 fs-5">Amount*:</label>
         <input type="text" class="form-control col" placeholder="Please input the amount" name="amount" id="amount"
-          required>
+          value="{{expense.amount}}" required>
       </div>
       <div class="row style-submit justify-content-end">
         <button type="submit" class="btn btn-primary col-10">Submit</button>

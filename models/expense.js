@@ -7,10 +7,10 @@ const expenseSchema = new Schema({
     required: true
   },
   date: {
-    type: Date,
+    type: String,
     required: true
   },
-  category: {
+  categoryId: {
     type: String,
     required: true
   },
