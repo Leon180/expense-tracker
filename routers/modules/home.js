@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
         return expense
       })
     )
-    console.log(expenses)
     res.render('index', { expenses, totalAmount })
   }
   catch {

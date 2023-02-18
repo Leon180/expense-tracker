@@ -9,15 +9,24 @@ const CATEGORY_LIST = {
   餐飲食品: "fa-solid fa-utensils",
   其他: "fa-solid fa-pen"
 }
+const CATEGORY_ID = {
+  家居物業: "1",
+  交通出行: "2",
+  休閒娛樂: "3",
+  餐飲食品: "4",
+  其他: "5"
+}
 
 router.get('/:category', async (req, res) => {
   try {
+    const userId = req.user._id
     const category = req.params.category
-    const categoryMatch = await Category.find({ name: category }).lean()
-    const expenses = await Promise.all(
-      categoryMatch.map(async (match) => {
-        let expense = await Expense.findOne({ _id: match.id }).lean()
-        expense.icon = CATEGORY_LIST[match.name]
+    const categoryId = CATEGORY_ID[category]
+    let expenses = await Expense.find({ userId, categoryId }).lean()
+    await Promise.all(
+      expenses.map(async (expense, i) => {
+        const category = await Category.findOne({ id: expense._id }).lean()
+        expense.icon = CATEGORY_LIST[category.name]
         return expense
       })
     )
